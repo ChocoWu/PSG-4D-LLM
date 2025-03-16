@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Learning 4D Panoptic Scene Graph Generation from Rich 2D Visual Scene">
+    <meta name="keywords" content="Learning 4D Panoptic Scene Graph Generation from Rich 2D Visual Scene">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PSG-4D</title>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link href="https://fonts.cdnfonts.com/css/caveat" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+    <link rel="icon" href="./static/images/logo.png">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+<!--    <link rel="stylesheet" href="bulma-carousel.min.css">-->
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <link rel="stylesheet" href="./static/css/index-gradio.css">
+    <link rel="stylesheet" href="./static/css/live_theme.css">
+
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/caveat');
+    </style>
+
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+<!--    <script src="./static/js/bulma-carousel.min.js"></script>-->
+<!--    <script src="./static/js/bulma-slider.min.js"></script>-->
+    <script src="./static/js/index.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <!-- <script type="text/iavascript" src="http://cdn.mathjax.org/mathiax/latest/MathJax.js?config=AM_HTMLOrMML-fu11"></script> -->
+
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"-->
+<!--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+</head>
+<body>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <!-- <h1 class="title is-1 publication-title" -->
+                        <!-- style="display: flex;flex-direction: row;align-items: center;justify-content: center;margin-bottom: 5px;"><img -->
+                            <!-- src="./static/images/logo.png" width="60" height="60" style="margin-right: 25px;margin-bottom: 6px;"></h1> -->
+                    <h1 class="title is-2 publication-title">Learning 4D Panoptic Scene Graph Generation from Rich 2D Visual Scene</h1>
+<!--                     <h1 class="title is-2 publication-title" style="margin-top: -25px">Understanding, Generating, Segmenting, Editing</h1> -->
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                            <a href="https://chocowu.github.io/">Shengqiong Wu</a><sup>1</sup></span> &nbsp;
+                        <span class="author-block">
+                            <a href="https://haofei.vip/">Hao Fei</a><sup>1</sup> </span> &nbsp;
+                        <span class="author-block">
+                            <a href="https://jingkang50.github.io/">Jingkang Yang</a><sup>2</sup> </span> &nbsp;
+                        <span class="author-block">
+                            <a href="https://lxtgh.github.io/">Xiangtai Li</a><sup>2</sup> </span> &nbsp;
+                        <span class="author-block">
+                            <a href="https://person.zju.edu.cn/juncheng">Juncheng Li</a><sup>3</sup> </span> &nbsp;
+                        <span class="author-block">
+                            <a href="https://personal.ntu.edu.sg/hanwangzhang/">Hanwang Zhang</a><sup>2</sup></span> &nbsp;
+                        <span class="author-block">
+                            <a href="https://www.chuatatseng.com/">Tat-Seng Chua</a><sup>1</sup></span> &nbsp;
+                                    
+                    </div>
+        
+                    <div class="is-size-5 publication-authors" style="margin-top: 10px;">
+                        <span class="author-block"><b style="color:#f68946; font-weight:normal">▶ </b><sup>1</sup>National University of Singapore</span> &nbsp;
+                        <span class="author-block"><b
+                                style="color:#008AD7; font-weight:normal">▶ </b><sup>2</sup>2Nanyang Technological University</span> &nbsp;
+                        <span class="author-block"><b
+                                style="color:#00d754; font-weight:normal">▶ </b><sup>3</sup>Zhejiang University</span>
+                    </div>
+
+                    <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block" style="font-size: 15px;">(<sup>*</sup>Correspondence)</span>
+                    </div> -->
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <span class="link-block">
+                                <a href="https://xxx" class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </span>
+                                <span>Paper</span>
+                            </a>
+                        </span>
+
+                <!-- <span class="link-block">
+                    <a href="xxx" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fa fa-laugh"></i>
+                    </span>
+                    <span>Demo</span>
+                    </a>
+                </span> -->
+                
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                    <a href="xxx" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                    </a>
+                </span> -->
+
+
+                <!-- Code Link. -->
+                <span class="link-block">
+                    <a href="https://github.com/ChocoWu/PSG-4D-LLM"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+                </span>
+                </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-2">Abstract</h2>
+                <div class="content has-text-justified">
+                    <div class="columns is-centered has-text-centered" style="display: flex; justify-content: center; gap: 30px;">
+                        <p  class="content has-text-justified"  style="text-align: left; flex: 1; max-width: 41%;">
+                            The latest emerged 4D Panoptic Scene Graph (4D-PSG) provides an advanced-ever representation for comprehensively modeling the dynamic 4D visual real world.
+                            Unfortunately, current pioneering 4D-PSG research can largely suffer from data scarcity issues severely, as well as the resulting out-of-vocabulary problems; also, the pipeline nature of the benchmark generation method can lead to suboptimal performance.
+                            To address these challenges, this paper investigates a novel framework for 4D-PSG generation that leverages rich 2D visual scene annotations to enhance 4D scene learning.
+                            First, we introduce a 4D Large Language Model (4D-LLM) integrated with a 3D mask decoder for end-to-end generation of 4D-PSG.
+                            A chained SG inference mechanism is further designed to exploit LLMs' open-vocabulary capabilities to infer accurate and comprehensive object and relation labels iteratively.
+                            Most importantly, we propose a 2D-to-4D visual scene transfer learning framework, where a spatial-temporal scene transcending strategy effectively transfers dimension-invariant features from abundant 2D SG annotations to 4D scenes, effectively compensating for data scarcity in 4D-PSG.
+                        </p>
+                        <div class="content has-text-justified" id="fig1" style="flex: 1.2; max-width: 50%;"> 
+                            <img class="columns is-centered has-text-centered" src="./static/images/intro.png" alt="Teaser" width="99%"
+                                 style="display: block; margin:0 auto">
+                            <!-- <iframe class="columns is-centered has-text-centered" src="example.pdf" width="100%" style="margin:0 auto"></iframe> -->
+                            <br>
+                            <figcaption>
+                                <p style="text-align: left;">
+                                    <font color="061E61">
+                                        <b>Figure 1: </b>(a) Illustration of 4D-PSG, (b) SG dataset statistics, and (c) motivation for 2D scene transfer learning.
+                                    </font>
+                                </p>
+                            </figcaption>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-2">Model Architecture</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        The framework is shown in <a href="#fig2">Fig. 2</a> (e.g., subfigure step 1). Specifically, given dual inputs of RGB and depth images of the 4D scene, we use ImageBind as the 4D scene encoder for each modality separately, followed by an aggregator to efficiently fuse feature from all modalities.
+                        Next, since our scene understanding focuses primarily on object-level and relation-level comprehension and we seek to optimize inference efficiency, we merge the resulting representations spatially and temporally. 
+                        The merged features are then passed through an MLP projector layer, transforming the embeddings into the language space for LLM comprehension. 
+                        We instantiate the LLM with LLaMA2, and leverage the LLM to output textual relation triplets sequences for SG generation.
+                        Also, we introduce a signal token ``<em>[Obj]</em> '' to trigger object segmentation. 
+                        Therefore, the output sequence takes the form: ``\( o_i \) <em>[Obj]</em> \(r_k\) \(o_j\) <em>[Obj] </em> \(t_s\) \(t_e\)''.
+                        At the backend, we employ SAM2 as a 3D mask decoder, which takes both the hidden states of the ``<em>[Obj]</em> '' tokens and the original RGB image frames as input. 
+                        To ensure compatibility with SAM2, a linear projector is applied to first project the hidden states to match the dimensions of SAM2's prompt embedding. 
+                        The projected hidden states are then used as prompt embeddings for SAM2.
+                    </p>
+                </div>
+                <div class="content has-text-justified" id="fig2">
+                    <img class="columns is-centered has-text-centered" src="./static/images/framework6.png" alt="framework" width="95%"
+                         style="margin:0 auto">
+                    <!-- <iframe class="columns is-centered has-text-centered" src="example.pdf" width="100%" style="margin:0 auto"></iframe> -->
+                    <br>
+                    <figcaption>
+                        <p style="text-align: center;">
+                            <font color="061E61">
+                                <b>Figure 2: </b>Overview of 2D-to-4D visual scene transfer learning mechanisms for 4D-PSG generation, including 4 key steps.
+                            </font>
+                        </p>
+                    </figcaption>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-2">2D-to-4D Visual Scene Transfer Learning</h2>
+                <div class="content has-text-justified">
+                    <div class="columns is-centered has-text-centered" style="display: flex; justify-content: center; gap: 10px;">
+                        <p  class="content has-text-justified"  style="text-align: left; flex: 1; max-width: 40%;">
+                            <!-- Our model consists of five main modules, as shown in <a href="#fig2">Fig. 2</a>. -->
+                            <ul style="text-align: left; max-width: 50%;">
+                                <li><b>Step 1: 4D Scene Perception Initiation Learning</b>, We begin with performing the initiation learning to enable the LLM to develop a foundational perception of the 4D scene so as to generate 4D SGs.</li>
+                                <li><b>Step 2: 2D-to-4D Scene Transcending Learning</b> As shown in <a href="#fig2">Fig. 2a</a>, this step consists of three subprocesses:
+                                    <ul>
+                                        <li><b>Subprocess-a): 2D (RGB) to Depth TranscendingLearning</b>, aiming to optimize the depth estimator \( F_{de} \) to predict the depth features; </li>
+                                        <li><b>Subprocess-b): 2D (RGB) Temporal TranscendingLearning</b>, designed to generate a 2D (RGB) temporal sequence features using an RGB Temporal Estimator \( F_{rte} \);</li>
+                                        <li><b>Subprocess-c): Depth Temporal Transcending Learning</b>, focusing on training a Depth Temporal Estimator \( F_{dte} \) to yield depth temporal sequence features.</li>
+                                    </ul>
+                                </li>
+                                <li><b>Step 3: Pseudo 4D Scene Transfer Initiation Learning</b>, we use a limited amount of 4D data to further refine the transcending module, and also to directly apply the transcended 2D scene features into the full 4D-LLM to interpret and produce the 4D PSG.</li>
+                                <li><b>Step 4: Large-scale Visual Scene Transfer Learning</b>, Following scene transfer initiation learning, we leverage large volumes of 2D visual features (i.e., 2D SGs) to enhance 4D scene understanding for 4D-PSG generation. Specifically, the model takes only 2D scenes as input, which are then transcended into pseudo-4D scenes (cf. <a href="#fig2">Fig. 2c</a>).</li>
+                            </ul>
+                        </p>
+                        <div class="content has-text-justified" id="fig3" style="flex: 8.5; max-width: 100%;"> 
+                            <img class="columns is-centered has-text-centered" src="./static/images/transfer-learning.png" alt="transfer-learning" width="100%"
+                                style="display: block; margin:0 auto">
+                            <br>
+                            <figcaption>
+                                <p style="text-align: left;">
+                                    <font color="061E61">
+                                        <b>Figure 3: </b>(a) Illustration of 4D-PSG, (b) SG dataset statistics, and (c) motivation for 2D scene transfer learning.
+                                    </font>
+                                </p>
+                            </figcaption>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+
+        <div class="columns is-centered has-text-centered">
+            <h2 class="title is-2">Quantitative Analysis</h2>
+            <br>
+        </div>
+
+        <div class="content has-text-justified" id="fig4">
+            <img class="columns is-centered has-text-centered" src="./static/images/case3.png" alt="framework" width="85%"
+                 style="margin:0 auto">
+            <!-- <iframe class="columns is-centered has-text-centered" src="example.pdf" width="100%" style="margin:0 auto"></iframe> -->
+            <br>
+            <figcaption>
+                <p style="text-align: center;">
+                    <font color="061E61">
+                        <b>Figure 4: </b>A case illustrating the prediction of 4D-LLM on 4D-PSG.
+                    </font>
+                </p>
+            </figcaption>
+        </div>
+
+    </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@inproceedings{wu2025psg4dllm,
+    title={Learning 4D Panoptic Scene Graph Generation from Rich 2D Visual Scene},
+    author={Shengqiong Wu and Hao Fei and Jingkang Yang and Xiangtai Li and Juncheng Li and Hanwang Zhang and Tat-Seng Chua},
+    booktitle={CVPR},
+    year={2025}
+}
+</code></pre>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p style="text-align: center;">
+                        The webpage is built based on <a href="https://next-gpt.github.io/">NExT-GPT</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
