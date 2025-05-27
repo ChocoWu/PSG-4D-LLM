@@ -42,8 +42,7 @@ We randomly select 200K dataset from both indoor and outdoor scene.
                   Dongbo Min and
                   Youngjung Kim and
                   Kwanghoon Sohn},
-  title        = {{DIML/CVL} {RGB-D} Dataset: 2M {RGB-D} Images of Natural Indoor and
-                  Outdoor Scenes},
+  title        = {{DIML/CVL} {RGB-D} Dataset: 2M {RGB-D} Images of Natural Indoor and Outdoor Scenes},
   journal      = {CoRR},
   volume       = {abs/2110.11590},
   year         = {2021},
