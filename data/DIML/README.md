@@ -37,20 +37,14 @@ We randomly select 200K dataset from both indoor and outdoor scene.
 
 ### Citation
 ```
-@article{DBLP:journals/corr/abs-2110-11590,
+@article{DIML,
   author       = {Jaehoon Cho and
                   Dongbo Min and
                   Youngjung Kim and
                   Kwanghoon Sohn},
-  title        = {{DIML/CVL} {RGB-D} Dataset: 2M {RGB-D} Images of Natural Indoor and Outdoor Scenes},
+  title        = {DIML/CVL RGB-D Dataset: 2M RGB-D Images of Natural Indoor and Outdoor Scenes},
   journal      = {CoRR},
   volume       = {abs/2110.11590},
-  year         = {2021},
-  url          = {https://arxiv.org/abs/2110.11590},
-  eprinttype    = {arXiv},
-  eprint       = {2110.11590},
-  timestamp    = {Thu, 28 Oct 2021 15:25:31 +0200},
-  biburl       = {https://dblp.org/rec/journals/corr/abs-2110-11590.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+  year         = {2021}
 }
 ```
